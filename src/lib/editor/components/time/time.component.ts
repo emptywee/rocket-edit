@@ -4,7 +4,8 @@ import { EditorService } from '../../services/editor.service';
 
 @Component({
   selector: 'time-editor',
-  templateUrl: './time.component.html',
+  template: `<input class="form-control" [(ngModel)]="value" type="time" [min]="config.min" [max]="config.max"
+  [required]="config.required" [title]="config.title" [placeholder]="config.placeholder" />`,
   styleUrls: ['./time.component.css']
 })
 export class TimeComponent implements OnInit, DoCheck, OnDestroy {

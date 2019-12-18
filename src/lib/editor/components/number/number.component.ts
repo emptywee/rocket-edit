@@ -4,7 +4,8 @@ import { EditorService } from '../../services/editor.service';
 
 @Component({
   selector: 'number-editor',
-  templateUrl: './number.component.html',
+  template: `<input class="form-control" [(ngModel)]="value" type="number" [min]="config.min" [max]="config.max"
+  [required]="config.required" [title]="config.title" [placeholder]="config.placeholder" [step]="config.step" />`,
   styleUrls: ['./number.component.css']
 })
 export class NumberComponent implements OnInit, DoCheck, OnDestroy {

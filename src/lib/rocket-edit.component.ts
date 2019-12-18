@@ -160,7 +160,7 @@ export class RocketEditComponent implements OnInit, AfterContentInit, OnDestroy,
       if (this.type !== 'select') {
         return this.value;
       } else {
-        const r = this.options.find(x => x.key.toString() === this.value);
+        const r = this.options.find(x => x.key.toString() === this.value.toString());
           if(r === undefined) {
           return this.selectPlaceholder;
         }

@@ -4,7 +4,11 @@ import { EditorService } from '../../services/editor.service';
 
 @Component({
   selector: 'select-editor',
-  templateUrl: './select.component.html',
+  template: `<select class="form-control" [(ngModel)]="value" [required]="config.required" (change)="updateValue($event)">
+  <option *ngFor="let item of config.options" [value]="item.key">
+      {{ item.value}}
+  </option>
+</select>`,
   styleUrls: ['./select.component.css']
 })
 export class SelectComponent implements OnInit, OnDestroy {

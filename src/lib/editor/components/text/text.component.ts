@@ -4,7 +4,9 @@ import { EditorService } from '../../services/editor.service';
 
 @Component({
   selector: 'text-editor',
-  templateUrl: './text.component.html',
+  template: `<input class="form-control" [(ngModel)]="value" type="text" 
+  [required]="config.required" [title]="config.title" [placeholder]="config.placeholder" 
+  [maxlength]="config.maxlength" [minlength]="config.minlength" [pattern]="config.pattern" />`,
   styleUrls: ['./text.component.css']
 })
 export class TextComponent implements OnInit, DoCheck, OnDestroy {

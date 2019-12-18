@@ -1,5 +1,0 @@
-<select class="form-control" [(ngModel)]="value" [required]="config.required" (change)="updateValue($event)">
-    <option *ngFor="let item of config.options" [value]="item.key">
-        {{ item.value}}
-    </option>
-</select>

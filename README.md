@@ -20,7 +20,6 @@ lib, ensure your version of Angular is compatible. The current version used to d
 ## Controls & Features
 
 * [x] text
-* [x] password
 * [x] select
 * [x] time
 * [x] number
@@ -69,13 +68,6 @@ import {Component} from '@angular/core';
     </div>
     <div>
         <rocket-edit 
-        type="password" 
-        [(ngModel)]="editablePassword" 
-        (Save)="save($event)">
-        </rocket-edit>
-    </div>
-    <div>
-        <rocket-edit 
         type="number" 
         [(ngModel)]="editableNumber" 
         (Save)="save($event)">
@@ -101,10 +93,9 @@ export class MyComponent {
   title = 'My component!';
 
   editableText = 'myText';
-  editablePassword = 'myPassword';
   editableNumber = 1234567890;
   editableTime = '10:10';
-  editableSelect = 'Mango';
+  editableSelect = 2;
   options =[
     {key: 1, value: 'Apple'},
     {key: 2, value: 'Mango'},
@@ -132,33 +123,6 @@ export class MyComponent {
         (Save)="save($event)"
         [name]="editableText"
         [pattern]="pattern"
-        [required]="true"
-        [placeholder]="placeholder"
-        [title]="title"
-        [minlength]="1"
-        [maxlength]="100"
-        [selectPlaceholder]="text-to-display-if-its-empty"></rocket-edit>
-```
-
-* **`type`** [`string`] Specifies the type `<input>` element to display.
-* **`Save`** [`event handler`] The expression specified will be invoked whenever the form is save via a click on save button.
-The `$event` argument will be the value return of the input send.
-* **`name`** [`string`] Defines the name of an `<input>` element. Default is `undefined`.
-* **`pattern`** [`regex`] the regular expression attribute to validate and `<input>` element. Default is `null`.
-* **`required`** [`boolean`] Specifies whether the `<input>` is mandatory or not.
-* **`placeholder`** [`string`] Specified placeholder text for `<input>`.
-* **`title`** [`string`] Specified placeholder title for `<input>`.
-* **`minlength`** [`number`] the minlength attribute specifies the minimum characters for an `<input>` element. Default is `1`.
-* **`maxlength`** [`number`] the maxlength attribute specifies the maximum characters for an `<input>` element. Default is `Infinity`.
-* **`selectPlaceholder`** [`string`] Specified text to display if `<input>` element is empty or hasve no value. Default is  `Click to add`.
-##### Password
-
-```HTML
- <rocket-edit
-        type="password"
-        [(ngModel)]="editablePassword"
-        (Save)="save($event)"
-        [name]="editablePassword"
         [required]="true"
         [placeholder]="placeholder"
         [title]="title"
@@ -252,22 +216,6 @@ The `$event` argument will be the value return of the input send.
 * **`options`** [`Array[{Value:string, Key: any }]`] Array of items from which to select. Should be an array of objects with `Value` and `Key` properties.
 * **`selectPlaceholder`** [`string`] Specified text to display if `<input>` element is empty or hasve no value. Default is  `Click to add`.
 
-Typescript code:
-```TypeScript
-  value = 'status1';
-  options =[
-    {key: 1, value: 'status1'},
-    {key: 2, value: 'status2'},
-    {key: 3, value: 'status3'},
-    {key: 4, value: 'status4'}
-  ];
-
-  save(value) {
-    //call to http server
-    console.log('http.server: ' + value);
-
-  }
-```
 
 # Troubleshooting
 
