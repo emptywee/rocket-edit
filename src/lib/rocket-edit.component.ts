@@ -51,7 +51,7 @@ export class RocketEditComponent implements OnInit, AfterContentInit, OnDestroy,
   @Input() maxlength;
   @Input() options;
   @Input() step;
-  @Input() selectPlaceholder = 'Click to add';
+  @Input() empty = 'Click to add';
 
   private _value = '';
   private preValue = '';
@@ -153,18 +153,18 @@ export class RocketEditComponent implements OnInit, AfterContentInit, OnDestroy,
 
   showText() {
     if (this.value === null || this.value === undefined) {
-      return this.selectPlaceholder;
+      return this.empty;
     } else if (this.value.toString().trim().length === 0) {
-      return this.selectPlaceholder;
+      return this.empty;
     } else {
       if (this.type !== 'select') {
         return this.value;
       } else {
         const r = this.options.find(x => x.key.toString() === this.value.toString());
           if(r === undefined) {
-          return this.selectPlaceholder;
+          return this.empty;
         }
-        return r.value === null ? this.selectPlaceholder : r.value;
+        return r.value === null ? this.empty : r.value;
       }
     }
   }
